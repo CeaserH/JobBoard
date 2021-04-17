@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styledashboard.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Dashboard</title>
+</head>
+<body>
+
+
+    <div class='container'>
+
+        <div class='header'>
+
+
+            <input class="form-control" type="text" placeholder="Welcome, {{ session['firstname'] }}!" readonly>
+            <form class="form-inline my-2 my-lg-0" action='/logout'>
+                    <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Logout</button>
+            </form>
+            <form class="form-inline my-2 my-lg-0" action='/jobs/new'>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">New Job</button>
+            </form>
+        </div>
+        <table class="table table-sm">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col-sm">ID</th>
+                    <th scope="col">Job</th>
+                    <th scope="col">Location</th>
+                    <th scope='col'>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for one_job in all_jobs %}
+                <tr>
+                    <th scope="row">{{ one_job['id'] }}</th>
+                    <td>{{ one_job['title'] }}</td>
+                    <td>{{ one_job['location']}}</td>
+                    <td><a href='/jobs/{{one_job.id}}'>View</a> {% if session['userid'] == one_job['posted_by_id'] %}| <a href='/jobs/delete/{{one_job.id}}'>Remove</a> | <a href='/jobs/edit/{{one_job.id}}'>Edit</a> {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+
+    </div>
+    
+</body>
+</html>

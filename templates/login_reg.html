@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' href='{{ url_for('static', filename='css/style.css') }}'>
+    <title>Login and Registration</title>
+</head>
+<body>
+    <h1>Login and Registration</h1>
+    <div class='container'>
+        <div class='leftside'>
+            <h2>Register Here!</h2>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p id='flasherror'>{{message}}<br></p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <form action='/register', method='post'>
+                <div class="form-group">
+                    <label for="firstname">First Name:</label>
+                    <input type="text" class="form-control" name="firstname">
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Last Name:</label>
+                    <input type="text" class="form-control" name="lastname">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" name="email" placeholder="name@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" name="password">
+                </div>
+                <div class="form-group">
+                    <label for="passwordconfirm">Confirm Password:</label>
+                    <input type="password" class="form-control" name="passwordconfirm">
+                </div>
+                <button type='submit' value='submit'>Register</button>
+            </form>
+                
+        </div>
+
+        <div class='rightside'>
+            <h2>Login Here!</h2>
+            <form action='/login', method='post'>
+                <div class="form-group">
+                    <label for="loginEm">Email:</label>
+                    <input type="text" class="form-control" id="loginEm" name='email'>
+                </div>
+                <div class="form-group">
+                    <label for="loginpassword">Password:</label>
+                    <input type="password" class="form-control" id="loginpassword" name='password'>
+                </div>
+                <button type='submit' value='submit'>Login</button>
+            </form>
+
+        </div>
+
+    </div>
+    
+</body>
+</html>

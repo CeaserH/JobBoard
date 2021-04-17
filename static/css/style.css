@@ -1,0 +1,33 @@
+body{
+    text-align: center;
+}
+/* body h1{
+    text-align: left;
+    margin-left: 415px;
+} */
+div.container{
+    display:inline-block;
+    width: 1000px;
+    text-align: left;
+}
+div.leftside{
+    display:inline-block;
+    width: 400px;
+    margin-top: 20px;
+}
+div.rightside{
+    display:inline-block;
+    width: 300px;
+    vertical-align: top;
+    margin-left: 200px;
+    margin-top: 20px;
+}
+div.leftside #flasherror{
+    color: red;
+    padding: 0px;
+    margin: 0px;
+    display: block;
+}
+div.container #succh1{
+    font-family: arial;
+}

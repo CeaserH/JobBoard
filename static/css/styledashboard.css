@@ -1,0 +1,54 @@
+div.container{
+    /* display: inline-block; */
+    text-align: center;
+}
+div.header{
+    display: inline-block;
+}
+div.header input{
+    width: 800px;
+    display: inline-block;
+    font-size: 24px;
+}
+div.header form{
+    display:inline-block;
+}
+div.content {
+    display:inline-block;
+}
+div.addbook {
+    display: inline-block;
+    text-align: left;
+}
+
+div.books {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 120px;
+}
+div.book p{
+    padding: 0px;
+    margin: 0px;
+}
+div.newjob{
+    width: 500px;
+    margin-left: 300px;
+}
+div.viewjob{
+    text-align: center;
+}
+div.viewjob div.header{
+    display: inline-block;
+}
+div.jobinfo{
+    text-align: center;
+    display: block;
+}
+div.jobdesc{
+    display: block;
+    min-height: 400px;
+
+}
+#flasherror{
+    color: red;
+}
